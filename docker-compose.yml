@@ -8,7 +8,19 @@ services:
     networks: ["my-network"]
     build: .
     ports:
-      - "8080:8080"
+      - "6969:6969"
+
+  hazelcast:
+    image: hazelcast/hazelcast:4.0.1
+    ports:
+      - 5701
+
+  management-center:
+    image: hazelcast/management-center:4.0.3
+    environment:
+      - MC_INIT_CMD=./mc-conf.sh cluster add -H=/data -ma hazelcast:5701 -cn dev
+    ports:
+      - 8080:8080
 
   prometheus:
     networks: ["my-network"]
