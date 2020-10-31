@@ -3,7 +3,7 @@ micronaut:
     name: hazelcastApi
   server:
     thread-selection: auto
-    port: ${MICRONAUT_PORT:`8080`}
+    port: ${MICRONAUT_PORT:`6969`}
     max-request-size: ${MICRONAUT_SERVER_MAX_REQUEST_SIZE:`1024`}
   metrics:
     enabled: true
