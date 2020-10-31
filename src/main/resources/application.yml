@@ -9,3 +9,19 @@ micronaut:
         descriptions: true
         step: PT1M
 hazelcast.network.addresses: '[''121.0.0.1:5701'']'
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+    details-visible: ANONYMOUS
+  metrics:
+    enabled: ${MICRONAUT_METRICS_ENABLED:true}
+    sensitive: false
+  prometheus:
+    enabled: true
+    sensitive: false
+  loggers:
+    enabled: true
+    sensitive: false
+    write-sensitive: false
