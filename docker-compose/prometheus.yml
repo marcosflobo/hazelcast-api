@@ -1,0 +1,7 @@
+scrape_configs:
+  - job_name: scrape-hazelcast-api
+    scrape_interval: 5s
+    metrics_path: /prometheus
+    static_configs:
+      - targets:
+        - hazelcast-api:8080
