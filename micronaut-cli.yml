@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.marcosflobo.hazelcast.api
+testFramework: spock
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, cache-hazelcast, gradle, http-client, java, java-application, logback, management, micrometer, micrometer-prometheus, netty-server, readme, shade, spock, yaml]

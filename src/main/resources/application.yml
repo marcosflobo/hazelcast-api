@@ -1,0 +1,11 @@
+micronaut:
+  application:
+    name: hazelcastApi
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        descriptions: true
+        step: PT1M
+hazelcast.network.addresses: '[''121.0.0.1:5701'']'
