@@ -17,6 +17,7 @@ hazelcast:
     addresses: ${HAZELCAST_NETWORK_ADDRESSES:`localhost:5701`}
   client:
     name: ${HAZELCAST_CLIENT_NAME:`hazelcastApi`}
+    clustername: ${HAZELCAST_CLIENT_CLUSTERNAME:`dev`}
 
 endpoints:
   health:
