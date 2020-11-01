@@ -3,6 +3,9 @@ package com.marcosflobo.hazelcast.api.hazelcast;
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.client.config.ClientNetworkConfig;
+import com.hazelcast.config.Config;
+import com.hazelcast.config.NetworkConfig;
+import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
@@ -23,14 +26,14 @@ public class HazelcastFactory {
 
   @Bean
   public HazelcastInstance getHazelcastClient () {
-    ClientNetworkConfig clientNetworkConfig = new ClientNetworkConfig();
-    clientNetworkConfig.setAddresses(hazecastNetworkAddresses);
+    NetworkConfig networkConfig = new NetworkConfig();
+    networkConfig.setPublicAddress(hazecastNetworkAddresses.get(0));
+    Config config = new Config();
+    config.setInstanceName(hazelcastClientName);
+    config.setClusterName("dev");
+    config.setNetworkConfig(networkConfig);
 
-    ClientConfig clientConfig = new ClientConfig();
-    //clientConfig.setClusterName("dev");
-    clientConfig.setInstanceName(hazelcastClientName);
-    clientConfig.setNetworkConfig(clientNetworkConfig);
+    return Hazelcast.newHazelcastInstance(config);
 
-    return HazelcastClient.newHazelcastClient(clientConfig);
   }
 }
