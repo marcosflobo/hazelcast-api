@@ -46,12 +46,13 @@ The `docker-compose.yml` file will run:
 
 ### Run docker-compose
 ```shell script
-$ ./gradlew clean assemble && docker-compose up
+$ ./gradlew clean assemble && docker-compose up --build
 ```
   - Prometheus is available on http://localhost:9090. Perform some tests on the app API (see chapter above) and wait 30s to query for some metric such as `http_server_requests_seconds_count`
   - Grafana is available on http://localhost:3000
   - Hazelcast server is deployed on port 5701
   - Hazelcast Management Center is available on http://localhost:8080
+  - And the hazelcast-api microservice is available on http://localhost:6969
 
 To stop the docker-compose, just type `Ctrl+c`. To remove the containers created, run `docker-compose down`.
 

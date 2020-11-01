@@ -8,7 +8,7 @@ services:
     networks: ["my-network"]
     build: .
     ports:
-      - "6969:6969"
+      - 6969:6969
     environment:
       - HAZELCAST_NETWORK_ADDRESSES=hazelcast:5701
       - HAZELCAST_CLIENT_NAME=hazelcast-api-docker
@@ -16,11 +16,13 @@ services:
       - HAZELCAST_CLIENT_CLUSTERNAME=dev
 
   hazelcast:
+    networks: ["my-network"]
     image: hazelcast/hazelcast:4.0.1
     ports:
       - 5701:5701
 
   management-center:
+    networks: ["my-network"]
     image: hazelcast/management-center:4.0.3
     environment:
       - MC_INIT_CMD=./mc-conf.sh cluster add -H=/data -ma hazelcast:5701 -cn dev
