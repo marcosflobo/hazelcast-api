@@ -8,20 +8,20 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Produces;
 import io.micronaut.http.annotation.Put;
 
 @Controller("/v1/map")
 public class MapController {
 
-  private MapService mapService;
+  private final MapService mapService;
 
   public MapController(MapService mapService) {
     this.mapService = mapService;
   }
 
-  @Get
+  @Post
   @Produces(MediaType.APPLICATION_JSON)
   public HttpResponse<String> get(HttpRequest request, @Body MapGetRequest mapGetRequest) {
     return mapService.get(mapGetRequest);
@@ -29,7 +29,8 @@ public class MapController {
 
   @Put
   @Produces(MediaType.APPLICATION_JSON)
-  public HttpResponse<String> writeKeyValue(HttpRequest request, @Body MapPutRequest mapPutRequest) {
+  public HttpResponse<String> writeKeyValue(HttpRequest request,
+      @Body MapPutRequest mapPutRequest) {
     return mapService.write(mapPutRequest);
   }
 

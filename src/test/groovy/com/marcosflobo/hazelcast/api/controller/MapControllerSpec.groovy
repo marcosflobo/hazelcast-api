@@ -48,7 +48,7 @@ class MapControllerSpec extends Specification {
         mockMapService.get(mapGetRequest) >> expResponse
 
         expect: "to return the service response"
-        def response = mapController.get(HttpRequest.GET("/v1/map"), mapGetRequest)
+        def response = mapController.get(HttpRequest.POST("/v1/map", mapGetRequest), mapGetRequest)
 
         and: "the response is OK"
         response.status() == expResponse.status()

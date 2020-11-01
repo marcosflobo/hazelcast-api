@@ -18,7 +18,8 @@ Microservice that exposes an API to manage information in Hazelcast Maps
 ## API Endpoints
 |Endpoint|Method|Produces|Consumes|Body|Desciption|
 ---------|------|--------|--------|----|----------|
-|/v1/map|PUT|`application/json`|`application/json`|`{"key":"foo","value":"myvalue", "map-name":"mymap"}`|Write a key/value on a specific Hazelcast Map|
+|/v1/map|PUT|`application/json`|`application/json`|`{"key":"foo", "value":"myvalue", "map-name":"mymap"}`|Write a key/value on a specific Hazelcast Map|
+|/v1/map|POST|`application/json`|`application/json`|`{"key":"foo", "map-name":"mymap"}`|Get the value from a key on a specific Hazelcast Map|
 
 ### Examples
 #### Write simple key/value in Map named "mymap2"
@@ -28,6 +29,10 @@ curl -X PUT http://localhost:6969/v1/map --header "Content-Type: application/jso
 #### Write a complex key/value in Map named "mymap2"
 ```shell script
 curl -X PUT http://localhost:6969/v1/map --header "Content-Type: application/json" -d '{"key":"foo","value":"{\"internal_key\": \"internal_value\"}", "map-name":"mymap2"}'
+```
+#### Get a value from a key in Map named "mymap2"
+```shell script
+curl -X POST http://localhost:6969/v1/map --header "Content-Type: application/json" -d '{"key":"complexkey", "map-name": "mymap2"}'
 ```
 
 ## Development
