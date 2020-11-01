@@ -1,5 +1,6 @@
 package com.marcosflobo.hazelcast.api.controller;
 
+import com.marcosflobo.hazelcast.api.domain.MapGetRequest;
 import com.marcosflobo.hazelcast.api.domain.MapPutRequest;
 import com.marcosflobo.hazelcast.api.service.MapService;
 import io.micronaut.http.HttpRequest;
@@ -7,6 +8,7 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
 import io.micronaut.http.annotation.Put;
 
@@ -17,6 +19,12 @@ public class MapController {
 
   public MapController(MapService mapService) {
     this.mapService = mapService;
+  }
+
+  @Get
+  @Produces(MediaType.APPLICATION_JSON)
+  public HttpResponse<String> get(HttpRequest request, @Body MapGetRequest mapGetRequest) {
+    return mapService.get(mapGetRequest);
   }
 
   @Put
