@@ -9,11 +9,15 @@ services:
     build: .
     ports:
       - "6969:6969"
+    environment:
+      - HAZELCAST_NETWORK_ADDRESSES=hazelcast:5701
+      - HAZELCAST_CLIENT_NAME=hazelcast-api-docker
+      - MICRONAUT_SERVER_PORT=6969
 
   hazelcast:
     image: hazelcast/hazelcast:4.0.1
     ports:
-      - 5701
+      - 5701:5701
 
   management-center:
     image: hazelcast/management-center:4.0.3
@@ -21,6 +25,8 @@ services:
       - MC_INIT_CMD=./mc-conf.sh cluster add -H=/data -ma hazelcast:5701 -cn dev
     ports:
       - 8080:8080
+    depends_on:
+      - hazelcast
 
   prometheus:
     networks: ["my-network"]
