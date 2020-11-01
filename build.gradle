@@ -23,9 +23,12 @@ micronaut {
 }
 
 dependencies {
+    annotationProcessor("io.micronaut:micronaut-inject-java")
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-xml",
             "com.fasterxml.jackson.core:jackson-databind",
-            "com.fasterxml.jackson.datatype:jackson-datatype-jdk8"
+            "com.fasterxml.jackson.datatype:jackson-datatype-jdk8",
+            "io.micronaut.cache:micronaut-cache-core:2.0.0"
+    implementation("io.micronaut:micronaut-inject")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-runtime")
     implementation("javax.annotation:javax.annotation-api")
@@ -33,7 +36,9 @@ dependencies {
     implementation("io.micronaut:micronaut-management")
     implementation("io.micronaut.micrometer:micronaut-micrometer-core")
     implementation("io.micronaut.micrometer:micronaut-micrometer-registry-prometheus")
-    implementation("io.micronaut.cache:micronaut-cache-hazelcast")
+    implementation("io.micronaut.cache:micronaut-cache-hazelcast:1.0.0")
+    testImplementation("io.micronaut:micronaut-inject-groovy")
+    testCompile("com.hazelcast:hazelcast:4.0.1:tests")
     runtimeOnly("ch.qos.logback:logback-classic")
 }
 
