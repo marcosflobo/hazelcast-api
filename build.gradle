@@ -48,4 +48,10 @@ java {
     targetCompatibility = JavaVersion.toVersion('11')
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
 test.finalizedBy jacocoTestReport
