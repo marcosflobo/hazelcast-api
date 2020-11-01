@@ -13,6 +13,7 @@ services:
       - HAZELCAST_NETWORK_ADDRESSES=hazelcast:5701
       - HAZELCAST_CLIENT_NAME=hazelcast-api-docker
       - MICRONAUT_SERVER_PORT=6969
+      - HAZELCAST_CLIENT_CLUSTERNAME=dev
 
   hazelcast:
     image: hazelcast/hazelcast:4.0.1

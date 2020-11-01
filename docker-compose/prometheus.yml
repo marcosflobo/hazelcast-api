@@ -4,4 +4,4 @@ scrape_configs:
     metrics_path: /prometheus
     static_configs:
       - targets:
-        - hazelcast-api:8080
+        - hazelcast-api:6969
