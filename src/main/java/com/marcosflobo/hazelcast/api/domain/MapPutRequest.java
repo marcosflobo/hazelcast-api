@@ -4,10 +4,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MapPutRequest {
 
+  @JsonProperty("map-name")
+  private String mapName;
   @JsonProperty("key")
   private String key;
   @JsonProperty("value")
   private String value;
+
+  public String getMapName() {
+    return mapName;
+  }
+
+  public void setMapName(String mapName) {
+    this.mapName = mapName;
+  }
 
   public String getKey() {
     return key;
