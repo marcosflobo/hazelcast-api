@@ -1,5 +1,8 @@
 package com.marcosflobo.hazelcast.api.hazelcast;
 
+import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.client.config.ClientNetworkConfig;
 import com.hazelcast.config.Config;
 import com.hazelcast.config.NetworkConfig;
 import com.hazelcast.core.Hazelcast;
@@ -23,13 +26,13 @@ public class HazelcastFactory {
 
   @Bean
   public HazelcastInstance getHazelcastClient() {
-    NetworkConfig networkConfig = new NetworkConfig();
-    networkConfig.setPublicAddress(hazecastNetworkAddresses.get(0));
-    Config config = new Config();
-    config.setInstanceName(hazelcastClientName);
-    config.setClusterName(hazelcastClusterName);
-    config.setNetworkConfig(networkConfig);
+    ClientNetworkConfig clientNetworkConfig = new ClientNetworkConfig();
+    clientNetworkConfig.setAddresses(hazecastNetworkAddresses);
 
-    return Hazelcast.newHazelcastInstance(config);
+    ClientConfig clientConfig = new ClientConfig();
+    clientConfig.setInstanceName(hazelcastClientName);
+    clientConfig.setNetworkConfig(clientNetworkConfig);
+
+    return HazelcastClient.newHazelcastClient(clientConfig);
   }
 }
