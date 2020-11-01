@@ -1,5 +1,6 @@
 # hazelcast-api
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6a48a3ea9aea4092b2aa3ae5ab40e299)](https://www.codacy.com/gh/marcosflobo/hazelcast-api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=marcosflobo/hazelcast-api&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/6a48a3ea9aea4092b2aa3ae5ab40e299)](https://www.codacy.com/gh/marcosflobo/hazelcast-api/dashboard?utm_source=github.com&utm_medium=referral&utm_content=marcosflobo/hazelcast-api&utm_campaign=Badge_Coverage)
 
 Microservice that exposes an API to manage information in Hazelcast Maps
 
