@@ -12,9 +12,6 @@ import java.util.List;
 @Factory
 public class HazelcastFactory {
 
-  @Value("${hazelcast.client.clustername}")
-  private String hazelcastClusterName;
-
   @Value("${hazelcast.network.addresses}")
   private List<String> hazecastNetworkAddresses;
 
