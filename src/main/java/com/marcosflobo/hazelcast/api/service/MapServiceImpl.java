@@ -21,8 +21,8 @@ public class MapServiceImpl implements MapService {
   @Override
   public HttpResponse<String> write(MapPutRequest mapPutRequest) {
 
-    hazelcastMap = hazelcastInstance.getMap("mymap");
-    hazelcastMap.putAsync(mapPutRequest.getKey(), mapPutRequest.getValue());
+    hazelcastMap = hazelcastInstance.getMap(mapPutRequest.getMapName());
+    hazelcastMap.put(mapPutRequest.getKey(), mapPutRequest.getValue());
 
     return HttpResponse.ok();
   }
