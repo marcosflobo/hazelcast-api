@@ -3,7 +3,7 @@ micronaut:
     name: hazelcastApi
   server:
     thread-selection: auto
-    port: ${MICRONAUT_PORT:`6969`}
+    port: ${MICRONAUT_SERVER_PORT:`6969`}
     max-request-size: ${MICRONAUT_SERVER_MAX_REQUEST_SIZE:`1024`}
   metrics:
     enabled: true
@@ -12,7 +12,11 @@ micronaut:
         enabled: true
         descriptions: true
         step: PT1M
-hazelcast.network.addresses: '[''121.0.0.1:5701'']'
+hazelcast:
+  network:
+    addresses: ${HAZELCAST_NETWORK_ADDRESSES:`localhost:5701`}
+  client:
+    name: ${HAZELCAST_CLIENT_NAME:`hazelcastApi`}
 
 endpoints:
   health:

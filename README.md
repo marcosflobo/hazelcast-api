@@ -6,7 +6,7 @@ Microservice that exposes an API to manage information in Hazelcast Maps
 ## Configuration
 |Property|Default value|Desciption|
 ---------|-------------|----------|
-|MICRONAUT_PORT|`6969`|The port on the API is listening|
+|MICRONAUT_SERVER_PORT|`6969`|The port on the API is listening|
 
 
 ## Endpoints
