@@ -1,0 +1,36 @@
+micronaut:
+  application:
+    name: hazelcastApi
+  server:
+    thread-selection: auto
+    port: -1
+    max-request-size: ${MICRONAUT_SERVER_MAX_REQUEST_SIZE:`1024`}
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        descriptions: true
+        step: PT1M
+hazelcast:
+  network:
+    addresses: ${HAZELCAST_NETWORK_ADDRESSES:`localhost-test:5701`}
+  client:
+    name: ${HAZELCAST_CLIENT_NAME:`hazelcastApi-test`}
+    clustername: ${HAZELCAST_CLIENT_CLUSTERNAME:`dev-test`}
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+    details-visible: ANONYMOUS
+  metrics:
+    enabled: ${MICRONAUT_METRICS_ENABLED:true}
+    sensitive: false
+  prometheus:
+    enabled: true
+    sensitive: false
+  loggers:
+    enabled: true
+    sensitive: false
+    write-sensitive: false

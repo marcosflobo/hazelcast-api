@@ -20,13 +20,18 @@ public class HazelcastFactory {
 
   @Bean
   public HazelcastInstance getHazelcastClient() {
+    ClientConfig clientConfig = getClientConfig();
+
+    return HazelcastClient.newHazelcastClient(clientConfig);
+  }
+
+  public ClientConfig getClientConfig() {
     ClientNetworkConfig clientNetworkConfig = new ClientNetworkConfig();
     clientNetworkConfig.setAddresses(hazecastNetworkAddresses);
 
     ClientConfig clientConfig = new ClientConfig();
     clientConfig.setInstanceName(hazelcastClientName);
     clientConfig.setNetworkConfig(clientNetworkConfig);
-
-    return HazelcastClient.newHazelcastClient(clientConfig);
+    return clientConfig;
   }
 }
