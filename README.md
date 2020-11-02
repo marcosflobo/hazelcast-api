@@ -8,6 +8,9 @@ Microservice that exposes an API to manage information in Hazelcast Maps
 -   Write information in a Hazelcast map
 -   Read information from a HaZELCAST map based on a key
 
+## Change Log
+See [CHANGELOG.md](CHANGELOG.md)
+
 ## Configuration
 |Property|Default value|Desciption|
 ---------|-------------|----------|
