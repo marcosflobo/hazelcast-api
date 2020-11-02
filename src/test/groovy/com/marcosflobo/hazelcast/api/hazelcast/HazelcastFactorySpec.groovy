@@ -14,7 +14,7 @@ class HazelcastFactorySpec extends Specification {
     HazelcastFactory hazelcastFactory = new HazelcastFactory()
 
     @Unroll
-    def "the hazelcast configuration is properly created"(){
+    def "the hazelcast configuration is properly created"() {
         when: "The Hazelcast client config is created"
         ClientConfig clientConfig = hazelcastFactory.getClientConfig()
 
