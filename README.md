@@ -41,6 +41,17 @@ curl -X PUT http://localhost:6969/v1/map --header "Content-Type: application/jso
 curl -X POST http://localhost:6969/v1/map --header "Content-Type: application/json" -d '{"key":"complexkey", "map-name": "mymap2"}'
 ```
 
+## Docker
+Docker image is available on [marcosflobo/hazelcast-api](https://hub.docker.com/r/marcosflobo/hazelcast-api)
+### Run simple hazelcast-api container
+```shell script
+docker run -it --rm --name my-hazelcast-api -p 6969:6969 marcosflobo/hazelcast-api:1.0.0
+```
+### Run hazelcast-api container with concrete configuration for Hazelcast cluster
+```shell script
+docker run -it --rm --name my-hazelcast-api -p 6969:6969 --env HAZELCAST_NETWORK_ADDRESSES=hazelcast:5701 --env HAZELCAST_CLIENT_NAME=hazelcast-api-docker --env HAZELCAST_CLIENT_CLUSTERNAME=dev --env MICRONAUT_SERVER_PORT=6969 marcosflobo/hazelcast-api:1.0.0 
+```
+
 ## Development
 During development, it's very important test and test fast, not only the application but also how it will work when it's
 deployed in production. For that, it's important to test via Docker container and, for doing so, we can use a docker-compose
