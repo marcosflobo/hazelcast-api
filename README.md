@@ -6,13 +6,13 @@ Microservice that exposes an API to manage information in Hazelcast Maps
 
 ## Features
 -   Write information in a Hazelcast map
--   Read information from a HaZELCAST map based on a key
+-   Read information from a Hazelcast map based on a key
 
 ## Change Log
 See [CHANGELOG.md](CHANGELOG.md)
 
 ## Configuration
-|Property|Default value|Desciption|
+|Property|Default value|Description|
 ---------|-------------|----------|
 |MICRONAUT_SERVER_PORT|`6969`|The port on the API is listening|
 |MICRONAUT_SERVER_MAX_REQUEST_SIZE|`1024`|Max size, in bytes, allowed for an incoming request|
@@ -22,7 +22,7 @@ See [CHANGELOG.md](CHANGELOG.md)
 |MICRONAUT_METRICS_ENABLED|`true`|Enable or disable the Micronaut metrics endpoint|
 
 ## API Endpoints
-|Endpoint|Method|Produces|Consumes|Body|Desciption|
+|Endpoint|Method|Produces|Consumes|Body|Description|
 ---------|------|--------|--------|----|----------|
 |/v1/map|PUT|`application/json`|`application/json`|`{"key":"foo", "value":"myvalue", "map-name":"mymap"}`|Write a key/value on a specific Hazelcast Map|
 |/v1/map|POST|`application/json`|`application/json`|`{"key":"foo", "map-name":"mymap"}`|Get the value from a key on a specific Hazelcast Map|
@@ -75,7 +75,7 @@ $ ./gradlew clean assemble && docker-compose up --build
 To stop the docker-compose, just type `Ctrl+c`. To remove the containers created, run `docker-compose down`.
 
 ### Metrics
-|Endpoint|Desciption|
+|Endpoint|Description|
 ---------|----------|
 |/metrics|Metrics information in JSON format|
 |/prometheus|Metrics information in Prometheus format|
