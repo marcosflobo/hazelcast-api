@@ -26,9 +26,9 @@ class MapControllerSpec extends Specification {
     @Unroll
     def "Controller puts key/value on a map successfully"() {
         given: "a body"
-        MapPutRequest mapPutRequest = new MapPutRequest();
+        MapPutRequest mapPutRequest = new MapPutRequest()
         and: "a response from the service"
-        def expResponse = HttpResponse.ok();
+        def expResponse = HttpResponse.ok()
         mockMapService.write(mapPutRequest) >> expResponse
 
         expect: "to return the service response"
@@ -40,11 +40,11 @@ class MapControllerSpec extends Specification {
 
     def "Controller gets value from key and map"() {
         given: "a body"
-        MapGetRequest mapGetRequest = new MapGetRequest();
-        mapGetRequest.setMapName("foomap");
-        mapGetRequest.setKey("foo");
+        MapGetRequest mapGetRequest = new MapGetRequest()
+        mapGetRequest.setMapName("foomap")
+        mapGetRequest.setKey("foo")
         and: "a response from the service"
-        def expResponse = HttpResponse.ok("bar");
+        def expResponse = HttpResponse.ok("bar")
         mockMapService.get(mapGetRequest) >> expResponse
 
         expect: "to return the service response"

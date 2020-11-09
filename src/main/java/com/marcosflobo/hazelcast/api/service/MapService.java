@@ -7,7 +7,7 @@ import io.micronaut.http.HttpResponse;
 
 public interface MapService {
 
-  public HttpResponse<String> get(MapGetRequest mapGetRequest);
-  public HttpResponse<String> write(MapPutRequest mapPutRequest);
+  HttpResponse<String> get(MapGetRequest mapGetRequest);
+  HttpResponse<String> write(MapPutRequest mapPutRequest);
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
 public class HazelcastFactory {
 
   @Value("${hazelcast.network.addresses}")
-  private List<String> hazecastNetworkAddresses;
+  private List<String> hazelcastNetworkAddresses;
 
   @Value("${hazelcast.client.name}")
   private String hazelcastClientName;
@@ -27,7 +27,7 @@ public class HazelcastFactory {
 
   public ClientConfig getClientConfig() {
     ClientNetworkConfig clientNetworkConfig = new ClientNetworkConfig();
-    clientNetworkConfig.setAddresses(hazecastNetworkAddresses);
+    clientNetworkConfig.setAddresses(hazelcastNetworkAddresses);
 
     ClientConfig clientConfig = new ClientConfig();
     clientConfig.setInstanceName(hazelcastClientName);
